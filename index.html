@@ -10,14 +10,15 @@
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);color:var(--txt);font-family:"Barlow Condensed","Arial Narrow",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.35}
 body{padding:calc(env(safe-area-inset-top,0px) + 64px) 0 calc(env(safe-area-inset-bottom,0px) + 76px)}
-header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(10,10,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 8px) 14px 8px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{font-size:24px;font-weight:800;letter-spacing:.5px;font-style:italic}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(10,10,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 8px) 14px 8px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.logo{font-size:22px;font-weight:800;letter-spacing:.5px;font-style:italic}
 .logo b{color:var(--red)}
+.header-btns{display:flex;gap:6px}
 button,input,select,textarea{font:inherit;color:inherit}
-.btn{background:var(--red);border:0;color:#fff;font-weight:700;letter-spacing:.4px;padding:10px 14px;border-radius:10px;cursor:pointer;box-shadow:0 0 18px rgba(255,31,61,.35)}
+.btn{background:var(--red);border:0;color:#fff;font-weight:700;letter-spacing:.4px;padding:9px 12px;border-radius:10px;cursor:pointer;box-shadow:0 0 18px rgba(255,31,61,.35);font-size:15px}
 .btn:active{transform:scale(.97)}
 .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--txt)}
-.btn.sm{padding:6px 10px;font-size:15px}
+.btn.sm{padding:6px 10px;font-size:14px}
 main{max-width:720px;margin:0 auto;padding:14px}
 nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:rgba(14,14,17,.96);border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom,0px)}
 nav button{flex:1;background:none;border:0;padding:11px 4px 9px;color:var(--mut);font-size:15px;font-weight:600;cursor:pointer;border-top:3px solid transparent}
@@ -33,7 +34,7 @@ h3{font-size:20px;font-weight:700}
 .stat small{color:var(--mut);font-size:14px}
 .kcal{grid-column:1/-1;border-left-width:5px}
 .kcal b{font-size:46px;color:var(--red2);text-shadow:0 0 24px rgba(255,31,61,.45)}
-.alert{border-radius:12px;padding:11px 13px;margin:8px 0;font-weight:600;border:1px solid;font-size:17px}
+.alert{border-radius:12px;padding:11px 13px;margin:8px 0;font-weight:600;border:1px solid;font-size:16px}
 .alert.g{background:rgba(46,230,107,.1);border-color:var(--grn);color:#8bffb3}
 .alert.y{background:rgba(255,208,40,.1);border-color:var(--yel);color:#ffe681}
 .alert.r{background:rgba(255,31,61,.12);border-color:var(--red);color:#ff9aa8}
@@ -43,7 +44,9 @@ h3{font-size:20px;font-weight:700}
 .tabs button small{display:block;font-weight:500;font-size:13px}
 .tabs button.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 18px rgba(255,31,61,.35)}
 .ex-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.tag{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:14px;color:var(--red2);white-space:nowrap}
+.tag{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:13px;color:var(--red2);white-space:nowrap}
+.modo{background:var(--card2);border-left:3px solid var(--yel);border-radius:8px;padding:8px 11px;margin:8px 0;font-size:14px;color:#e1e1e6;line-height:1.4}
+.modo b{color:var(--yel)}
 .last{margin:6px 0;color:var(--mut);font-size:15px}
 .last b{color:var(--txt)}
 input,select{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 10px;width:100%;font-size:17px}
@@ -58,13 +61,19 @@ summary{cursor:pointer;color:var(--mut);font-size:15px}
 .x{background:none;border:0;color:var(--red2);cursor:pointer;font-size:18px;padding:4px 8px}
 .macros{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .macros .stat b{font-size:26px}
-.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.8);display:none;align-items:flex-end;justify-content:center}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.85);display:none;align-items:flex-end;justify-content:center}
 .modal.on{display:flex}
-.sheet{background:var(--card);border:1px solid var(--line);border-radius:18px 18px 0 0;width:100%;max-width:720px;max-height:92vh;padding:14px 14px calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;flex-direction:column;gap:10px}
-.sheet textarea{flex:1;min-height:48vh;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:none}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:18px 18px 0 0;width:100%;max-width:720px;max-height:92vh;padding:16px 14px calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;flex-direction:column;gap:10px;overflow-y:auto}
+.sheet textarea{flex:1;min-height:40vh;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:none}
 .btns{display:flex;gap:8px}.btns .btn{flex:1}
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--red);padding:9px 16px;border-radius:30px;font-weight:700;z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
 .toast.on{opacity:1}
+.timer-box{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.timer-val{font-size:28px;font-weight:800;color:var(--red2);min-width:70px}
+.timer-btns{display:flex;gap:6px}
+.legend-item{background:var(--card2);border-radius:10px;padding:10px;margin-bottom:8px;border-left:3px solid var(--red)}
+.legend-item h4{color:var(--red2);margin-bottom:4px;font-size:16px}
+.legend-item p{font-size:14px;color:#d1d1d6;line-height:1.35}
 svg{width:100%;height:auto;display:block}
 @media (min-width:700px){body{font-size:18px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -73,7 +82,10 @@ svg{width:100%;height:auto;display:block}
 <body>
 <header>
   <div class="logo">FIGHTER<b>.</b>TRACK</div>
-  <button class="btn" id="btnReport">📋 ESTRAI REPORT PER CHAT</button>
+  <div class="header-btns">
+    <button class="btn ghost sm" id="btnLegend">📖 GUIDA &amp; RIR</button>
+    <button class="btn sm" id="btnReport">📋 REPORT</button>
+  </div>
 </header>
 <main id="app"></main>
 <nav id="nav">
@@ -81,35 +93,102 @@ svg{width:100%;height:auto;display:block}
   <button data-tab="train"><span>🥊</span>Allenamento</button>
   <button data-tab="diet"><span>🥗</span>Peso &amp; Dieta</button>
 </nav>
-<div class="modal" id="modal">
+
+<!-- MODALE REPORT -->
+<div class="modal" id="modalReport">
   <div class="sheet">
     <h3>Report per la Chat</h3>
     <textarea id="reportTxt" readonly></textarea>
-    <div class="btns"><button class="btn" id="btnCopy">Copia negli appunti</button><button class="btn ghost" id="btnClose">Chiudi</button></div>
+    <div class="btns"><button class="btn" id="btnCopy">Copia negli appunti</button><button class="btn ghost" id="btnCloseReport">Chiudi</button></div>
   </div>
 </div>
+
+<!-- MODALE LEGENDA & RIR -->
+<div class="modal" id="modalLegend">
+  <div class="sheet">
+    <h3>📖 Guida all'Allenamento &amp; Legenda RIR</h3>
+    
+    <div class="legend-item">
+      <h4>🎯 Cos'è il RIR (Reps In Reserve)?</h4>
+      <p>Indica quante ripetizioni "ti tenevi in canna" prima del cedimento. <b>RIR 1-2 significa che ti fermi quando ti restano ancora 1 o 2 ripetizioni pulite nell'ultima serie.</b> Mantiene alta l'ipertrofia senza friggere il sistema nervoso prima dell'MMA.</p>
+    </div>
+
+    <div class="legend-item">
+      <h4>⏱ Tempo di Esecuzione (TUT - Time Under Tension)</h4>
+      <p><b>Non sbattere i pesi!</b> Fai 2-3 secondi di discesa controllata (fase eccentrica) e 1 secondo di salita esplosiva (fase concentrica). Niente slanci o imbrogli con la schiena nei curl.</p>
+    </div>
+
+    <div class="legend-item">
+      <h4>🏋️ Progressione Carichi &amp; Zavorre</h4>
+      <p>Aumenta il peso di +1-2.5kg quando completi tutte le serie e ripetizioni target con forma pulita per 2 allenamenti di fila. Per Trazioni e Dip, quando superi il limite max di reps a corpo libero, <b>aggiungi una cintura con zavorra (+2.5kg / +5kg).</b></p>
+    </div>
+
+    <div class="legend-item">
+      <h4>🛑 Quando andare a Cedimento Assoluto?</h4>
+      <p>Mai nelle prime serie dei grandi esercizi multiarticolari. Riserva il cedimento totale (RIR 0) solo all'<b>ultima serie dell'ultimo esercizio di isolamento</b> (es. French Press o Alzate Laterali).</p>
+    </div>
+
+    <div class="btns"><button class="btn" id="btnCloseLegend">Capito, torna alla scheda</button></div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-/* ---------- DATI ---------- */
+/* ---------- DATI ESERCIZI + MODUS OPERANDI ---------- */
 const DAYS = {
   mar:{n:'Martedì',t:'Push',ex:[
-    ['panca','Panca piana/inclinata',4,6,8],['lento','Lento avanti manubri',3,8,10],['dip','Dip alle parallele',3,8,10],
-    ['alzate','Alzate laterali',4,12,15],['french','French Press',4,10,12]]},
+    ['panca','Panca piana/inclinata (Manubri)',4,6,8,120,'Inclinazione panca 30°. Discesa lenta in 2-3 secondi fino a sentire bene lo stretching al petto. Spinta esplosiva senza bloccare i gomiti. RIR 1-2.'],
+    ['lento','Lento avanti manubri',3,8,10,90,'Seduto a 80°. Porta i manubri all\'altezza delle orecchie e spingi in alto senza far toccare i manubri tra loro in cima. Schiena ben adesa.'],
+    ['dip','Dip alle parallele',3,8,10,90,'Busto leggermente inclinato in avanti. Scendi finché l\'omero è parallelo al suolo. ⚠️ ZAVORRA: quando fai 3x10 pulite a corpo libero, usa una cintura con +2.5 / +5kg.'],
+    ['alzate','Alzate laterali',4,12,15,60,'Gomiti leggermente flessi, guida il movimento con i gomiti e non con le mani. Pausa di 1 sec in alto. Niente slanci col busto.'],
+    ['french','French Press (Cavi / EZ)',4,10,12,60,'Gomiti fermi e bloccati rivolti in avanti. Muovi solo gli avambracci. Focus totale sul tricipite. Ultima serie a cedimento.']
+  ]},
   gio:{n:'Giovedì',t:'Pull',ex:[
-    ['trazioni','Trazioni alla barra',4,6,10],['rematore','Rematore bilanciere/manubrio',3,8,10],['pulley','Pulley o Lat machine',3,10,12],
-    ['face','Face Pulls',4,15,15],['curl','Curl EZ / 45° (bicipiti)',4,10,12]]},
+    ['trazioni','Trazioni alla barra',4,6,10,120,'Presa supina o neutra per ingaggiare i bicipiti. Petto verso la barra, mento sopra l\'asta. ⚠️ ZAVORRA: quando superi le 10 reps pulite a corpo libero, aggiungi zavorra (+2.5kg / +5kg).'],
+    ['rematore','Rematore bilanciere/manubrio',3,8,10,90,'Busto inclinato a 45°, tirata verso l\'ombelico. Spremi le scapole in chiusura per 1 secondo. Non tirare di bicipite.'],
+    ['pulley','Pulley o Lat machine',3,10,12,90,'Schiena dritta, petto in fuori. Tira al petto e controlla la fase di ritorno per 3 secondi senza farti strattonare.'],
+    ['face','Face Pulls',4,15,15,60,'Tira la corda verso la fronte/occhi aprendo le mani all\'esterno. Fondamentale per la salute delle spalle nell\'MMA. Carico medio e concentrazione.'],
+    ['curl','Curl EZ / 45° (bicipiti)',4,10,12,60,'Panca a 45° o bilanciere EZ. Gomiti bloccati lungo i fianchi. Salita in 1 sec, discesa lenta in 3 sec. Vietato oscillare col busto!']
+  ]},
   sab:{n:'Sabato',t:'Upper & Arms',ex:[
-    ['superset','Superset Bicipiti/Tricipiti',4,10,12],['hammer','Hammer Curl',3,12,12],
-    ['croci','Croci ai cavi',3,12,15],['pulleyn','Pulley presa neutra',3,12,15]]}
+    ['superset','Superset Bicipiti/Tricipiti',4,10,12,90,'Esegui 1 serie Curl Bicipiti + SUBITO 1 serie Pushdown Tricipiti senza pausa. Poi recupera 90 secondi. Pompaggio massimo!'],
+    ['hammer','Hammer Curl manubri',3,12,12,60,'Presa a martello (neutra). Lavora sul brachiale e sull\'avambraccio per dare spessore al braccio. Discesa controllata.'],
+    ['croci','Croci ai cavi',3,12,15,60,'Cavi ad altezza spalle/petto. Stringi il petto al centro come se dovessi abbracciare un albero. Pompaggio e spreco di sangue nel muscolo.'],
+    ['pulleyn','Pulley presa neutra',3,12,15,60,'Presa stretta (pulley con triangolo). Tira all\'addome e mantieni la contrazione per 1 sec prima di distendere.']
+  ]}
 };
-const EX = {}; Object.values(DAYS).forEach(d=>d.ex.forEach(e=>EX[e[0]]={id:e[0],name:e[1],sets:e[2],min:e[3],max:e[4]}));
+
+const EX = {}; Object.values(DAYS).forEach(d=>d.ex.forEach(e=>EX[e[0]]={id:e[0],name:e[1],sets:e[2],min:e[3],max:e[4],rest:e[5]||60,modo:e[6]||''}));
 const TARGET = {kcal:3000,p:155,c:430,f:70};
 const KEY = 'fighterTracker.v1';
 let S = {logs:{},weights:[]};
 try{ const raw=localStorage.getItem(KEY); if(raw) S=Object.assign(S,JSON.parse(raw)); }catch(e){}
 const save = ()=>{ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast('Salvataggio non riuscito')} };
 let tab='dash', day='mar';
+
+/* ---------- TIMER PAUSA ---------- */
+let timerInt = null, timerSec = 0;
+function startTimer(sec){
+  clearInterval(timerInt);
+  timerSec = sec;
+  updateTimerUI();
+  timerInt = setInterval(()=>{
+    timerSec--;
+    updateTimerUI();
+    if(timerSec<=0){
+      clearInterval(timerInt);
+      toast('🔔 TEMPO SCADUTO! Inizia la serie!');
+    }
+  },1000);
+}
+function stopTimer(){ clearInterval(timerInt); timerSec=0; updateTimerUI(); }
+function updateTimerUI(){
+  const el = $('#timerVal');
+  if(!el) return;
+  const m = Math.floor(timerSec/60), s = timerSec%60;
+  el.textContent = `${m}:${String(s).padStart(2,'0')}`;
+}
 
 /* ---------- UTIL ---------- */
 const $=s=>document.querySelector(s);
@@ -120,7 +199,7 @@ const fmt=s=>dt(s).toLocaleDateString('it-IT',{day:'2-digit',month:'short'});
 const days=(a,b)=>(dt(b)-dt(a))/864e5;
 const r1=n=>Math.round(n*10)/10;
 const sg=n=>(n>0?'+':'')+r1(n);
-function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2500)}
 
 /* ---------- ALGORITMO CARICHI ---------- */
 const sorted=id=>(S.logs[id]||[]).slice().sort((a,b)=>a.date.localeCompare(b.date));
@@ -202,20 +281,33 @@ function renderDash(){
 function renderTrain(){
   const d=DAYS[day];
   let html=`<h2>Scheda allenamento</h2><div class="tabs">${Object.entries(DAYS).map(([k,v])=>`<button data-day="${k}" class="${k===day?'on':''}">${v.n}<small>${v.t}</small></button>`).join('')}</div>`;
+  
+  // Box Timer
+  const m = Math.floor(timerSec/60), s = timerSec%60;
+  html += `<div class="timer-box">
+    <div><small class="mut">Timer Recupero:</small><div class="timer-val" id="timerVal">${m}:${String(s).padStart(2,'0')}</div></div>
+    <div class="timer-btns">
+      <button class="btn sm ghost" data-timer="60">60s</button>
+      <button class="btn sm ghost" data-timer="90">90s</button>
+      <button class="btn sm ghost" data-timer="120">2m</button>
+      <button class="btn sm ghost" data-timer="stop">⏹</button>
+    </div>
+  </div>`;
+
   d.ex.forEach(e=>{
     const r=analyze(e[0]), ex=r.ex;
     const tgt=ex.min===ex.max?ex.max:ex.min+'-'+ex.max;
     const hist=sorted(ex.id).slice().reverse().slice(0,6);
     const defKg=r.last?topKg(r.last):'';
     html+=`<div class="card" data-ex="${ex.id}">
-      <div class="ex-h"><h3>${h(ex.name)}</h3><span class="tag">${ex.sets}×${ex.id==='trazioni'?'max':tgt}</span></div>
-      ${ex.id==='trazioni'?'<div class="mut">Target rep. considerato: '+ex.min+'-'+ex.max+'</div>':''}
+      <div class="ex-h"><h3>${h(ex.name)}</h3><span class="tag">${ex.sets}×${ex.id==='trazioni'?'max':tgt} · RIR 1-2</span></div>
+      ${ex.modo?`<div class="modo"><b>Modus Operandi:</b> ${ex.modo}</div>`:''}
       <div class="last">${r.last?`Ultima (${fmt(r.last.date)}): <b>${setsStr(r.last)}</b>${r.trend?'· '+r.trend:''}`:'Nessun dato registrato.'}</div>
       ${r.alert?`<div class="alert ${r.alert.c}">${r.alert.t}</div>`:''}
       <input type="date" class="date" value="${today()}" data-f="date">
       <div class="cols"><span>Serie</span><span>Kg</span><span>Ripetizioni</span></div>
       ${Array.from({length:ex.sets},(_,i)=>`<div class="row"><i>${i+1}</i><input type="number" inputmode="decimal" step="0.5" min="0" placeholder="kg" value="${defKg}" data-f="kg${i}"><input type="number" inputmode="numeric" min="0" placeholder="rep" data-f="rep${i}"></div>`).join('')}
-      <button class="btn" data-save="${ex.id}" style="width:100%;margin-top:6px">Salva sessione</button>
+      <button class="btn" data-save="${ex.id}" style="width:100%;margin-top:6px">Salva sessione &amp; Avvia Pausa (${ex.rest}s)</button>
       ${hist.length?`<details><summary>Storico (${hist.length})</summary>${hist.map(l=>`<div class="hist"><span>${fmt(l.date)} · ${setsStr(l)}</span><button class="x" data-del="${ex.id}|${l.date}|${l.ts}" aria-label="Elimina">✕</button></div>`).join('')}</details>`:''}
     </div>`;
   });
@@ -280,7 +372,12 @@ function buildReport(){
 /* ---------- EVENTI ---------- */
 document.addEventListener('click',e=>{
   const t=e.target.closest('button'); if(!t) return;
-  if(t.dataset.tab){tab=t.dataset.tab;render();window.scrollTo(0,0);}
+  if(t.dataset.timer){
+    const v = t.dataset.timer;
+    if(v==='stop') stopTimer();
+    else startTimer(parseInt(v,10));
+  }
+  else if(t.dataset.tab){tab=t.dataset.tab;render();window.scrollTo(0,0);}
   else if(t.dataset.day){day=t.dataset.day;render();}
   else if(t.dataset.go){day=t.dataset.go;tab='train';render();window.scrollTo(0,0);}
   else if(t.dataset.save){
@@ -291,7 +388,9 @@ document.addEventListener('click',e=>{
       if(!isNaN(rep)&&rep>=0&&!isNaN(kg)) sets.push({kg,reps:rep});
     }
     if(!sets.length){toast('Inserisci kg e ripetizioni');return}
-    (S.logs[id]=S.logs[id]||[]).push({date,ts:Date.now(),sets}); save(); render(); toast('Sessione salvata 💪');
+    (S.logs[id]=S.logs[id]||[]).push({date,ts:Date.now(),sets}); save(); render(); 
+    toast('Sessione salvata 💪');
+    startTimer(ex.rest);
   }
   else if(t.dataset.del){
     const [id,date,ts]=t.dataset.del.split('|');
@@ -303,15 +402,18 @@ document.addEventListener('click',e=>{
     S.weights=S.weights.filter(w=>w.date!==date); S.weights.push({date,kg}); save(); render(); toast('Peso salvato ✔');
   }
   else if(t.dataset.wdel){S.weights=S.weights.filter(w=>w.date!==t.dataset.wdel);save();render();}
-  else if(t.id==='btnReport'){$('#reportTxt').value=buildReport();$('#modal').classList.add('on');}
-  else if(t.id==='btnClose'){$('#modal').classList.remove('on');}
+  else if(t.id==='btnLegend'){$('#modalLegend').classList.add('on');}
+  else if(t.id==='btnCloseLegend'){$('#modalLegend').classList.remove('on');}
+  else if(t.id==='btnReport'){$('#reportTxt').value=buildReport();$('#modalReport').classList.add('on');}
+  else if(t.id==='btnCloseReport'){$('#modalReport').classList.remove('on');}
   else if(t.id==='btnCopy'){
     const ta=$('#reportTxt'), txt=ta.value;
     const fb=()=>{ta.select();try{document.execCommand('copy');toast('Copiato negli appunti ✔')}catch(_){toast('Seleziona e copia manualmente')}};
     if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(txt).then(()=>toast('Copiato negli appunti ✔'),fb); else fb();
   }
 });
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')});
+$('#modalReport').addEventListener('click',e=>{if(e.target.id==='modalReport')$('#modalReport').classList.remove('on')});
+$('#modalLegend').addEventListener('click',e=>{if(e.target.id==='modalLegend')$('#modalLegend').classList.remove('on')});
 render();
 </script>
 </body>
